@@ -8,6 +8,14 @@ print "\nHow many name suggestions?\n";
 my $amount = <STDIN>;
 chomp $amount;
 
+if ( $amount > 200 ) {
+	print "Way too many names, choose a number less than 200.\n";
+	exit 0;
+}
+elsif ( $amount <= 0 ) {
+	print "You entered a word or a negative number(or 0)!\n";
+	exit 0;
+}
 if ( lc($gender) eq "boy")
 	{
 		open $FILE, "<", "boynames.txt" 
@@ -18,6 +26,7 @@ if ( lc($gender) eq "boy")
 			my $randomname = $names[ rand @names ];
 			print "$randomname";
 		}
+		exit 0;
 	}
 	elsif (lc($gender) eq "girl")
 	{
@@ -29,12 +38,13 @@ if ( lc($gender) eq "boy")
 			my $randomname = $names[ rand @names ];
 			print "$randomname";
 		}
+		exit 0;
 	}
 	else 
 	{
 		if ( lc($gender) ne "Either") #handling miscellaneous input
 			{
-				print "Didn't choose valid option choosing from either list\n";
+				print "Didn't choose valid option, choosing from either list.\n";
 			}
 		my @files= qw | boynames.txt girlnames.txt |;
 		my @names;
@@ -47,5 +57,6 @@ if ( lc($gender) eq "boy")
 			my $randomname = $names[ rand @names ];
 			print "$randomname";
 		}
+		exit 0;
 	}
 }
