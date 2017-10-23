@@ -1,4 +1,5 @@
 #!/bin/perl
+#Thomas Miller
 
 print "Boy, Girl or Either?\n";
 my $gender = <STDIN>;
@@ -12,8 +13,8 @@ if ( lc($gender) eq "boy")
 		open $FILE, "<", "boynames.txt" 
 			or die "Failed to open file: $!\n";
 		chomp (my @names = <$FILE>);
-		close $FILE;
-		for ( 1 .. $amount ) {
+		close $FILE; 
+		for ( 1 .. $amount ) { #loop to randomly pick a name and print for amount specified
 			my $randomname = $names[ rand @names ];
 			print "$randomname";
 		}
@@ -24,14 +25,17 @@ if ( lc($gender) eq "boy")
 			or die "Failed to open file: $!\n";
 		chomp (my @names = <$FILE>);
 		close $FILE;
-		for ( 1 .. $amount ) {
+		for ( 1 .. $amount ) { #loop to randomly pick a name and print for amount specified
 			my $randomname = $names[ rand @names ];
 			print "$randomname";
 		}
 	}
-	else
+	else 
 	{
-		print 
+		if ( lc($gender) ne "Either") #handling miscellaneous input
+			{
+				print "Didn't choose valid option choosing from either list\n";
+			}
 		my @files= qw | boynames.txt girlnames.txt |;
 		my @names;
 		for my $filename(@files){
@@ -39,7 +43,7 @@ if ( lc($gender) eq "boy")
 				or die "Failed to open file $filename\n";
 			push @names, <$FILE>;
 			close $FILE;
-					for ( 1 .. $amount ) {
+					for ( 1 .. $amount ) { #loop to randomly pick a name and print for amount specified
 			my $randomname = $names[ rand @names ];
 			print "$randomname";
 		}
