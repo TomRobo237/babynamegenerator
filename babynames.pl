@@ -24,7 +24,7 @@ if ( lc($gender) eq "boy")
 		close $FILE; 
 		for ( 1 .. $amount ) { #loop to randomly pick a name and print for amount specified
 			my $randomname = $names[ rand @names ];
-			print "$randomname";
+			print "$randomname\n";
 		}
 		exit 0;
 	}
@@ -36,7 +36,7 @@ if ( lc($gender) eq "boy")
 		close $FILE;
 		for ( 1 .. $amount ) { #loop to randomly pick a name and print for amount specified
 			my $randomname = $names[ rand @names ];
-			print "$randomname";
+			print "$randomname\n";
 		}
 		exit 0;
 	}
@@ -55,7 +55,7 @@ if ( lc($gender) eq "boy")
 			close $FILE;
 					for ( 1 .. $amount ) { #loop to randomly pick a name and print for amount specified
 			my $randomname = $names[ rand @names ];
-			print "$randomname";
+			print "$randomname\n";
 		}
 		exit 0;
 	}
